@@ -15,7 +15,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { validateIntake, validateSleep, isValidDate } = require('../services/validators');
+const { validateIntake, validateSleep, isValidDate } = require('../../shared/validators');
 
 const router = express.Router();
 
