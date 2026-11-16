@@ -19,6 +19,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Caffeine Diary Server is running' });
 });
 
+// API 라우터 연결
+const recordsRouter = require('./routes/records');
+app.use('/api', recordsRouter);
+
 // 메인 페이지 전달
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
