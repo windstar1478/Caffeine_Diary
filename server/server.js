@@ -39,3 +39,5 @@ app.listen(PORT, () => {
 // 라우터 연결
 const caffeineRouter = require('./routes/caffeine');
 app.use('/api/caffeine', caffeineRouter);
+const statisticsRouter = require('./routes/statistics');
+app.use('/api/statistics', statisticsRouter);

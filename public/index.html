@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>스마트 카페인 컷오프 다이어리</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
   <!-- 공통 헤더 -->
@@ -55,8 +56,35 @@
     <!-- ======================================================== -->
     <!-- [담당 C] 주간 연관 통계 대시보드 & AI 인사이트 리포트 -->
     <!-- ======================================================== -->
-    <section>
-
+    <section id="section-dashboard" aria-labelledby="dashboard-title">
+      <h2 id="dashboard-title">주간 카페인·수면 통계</h2>
+      <div class="dashboard-toolbar">
+        <span id="dashboard-source" class="dashboard-source">실제 기록</span>
+        <button type="button" id="apply-sample-btn" class="btn btn-primary">샘플 데이터 적용</button>
+        <button type="button" id="show-actual-btn" class="btn btn-outline" hidden>실제 기록 보기</button>
+      </div>
+      <p id="dashboard-status" role="status" aria-live="polite">통계를 불러오는 중입니다.</p>
+      <div id="dashboard-content" hidden>
+        <div class="form-group dashboard-week">
+          <label for="dashboard-week-select">조회 주간</label>
+          <select id="dashboard-week-select"></select>
+        </div>
+        <div class="dashboard-metrics">
+          <div><span>숙면한 날의 평균 마지막 섭취 시각</span><strong id="average-cutoff">—</strong><small>개운함 4점 이상 · 미섭취일 제외</small></div>
+          <div><span>18시 이후 섭취한 날 · 입면 어려움</span><strong id="late-rate">—</strong><small id="late-count"></small></div>
+          <div><span>18시 이후 섭취가 없는 날 · 입면 어려움</span><strong id="early-rate">—</strong><small id="early-count"></small></div>
+        </div>
+        <h3>하루 카페인 섭취량과 다음 날 개운함</h3>
+        <p class="dashboard-legend"><span>■ 카페인 총량 (mg)</span><span>● 개운함 (1~5점)</span></p>
+        <div id="weekly-chart" class="dashboard-chart"></div>
+        <p class="dashboard-note">왼쪽 축은 카페인(mg), 오른쪽 축은 개운함(점)입니다. 수면 점수는 섭취일 다음 날 아침 기록입니다. 통계는 기록 간 연관성을 보여주며 인과관계나 안전한 섭취 시각을 확정하지 않습니다.</p>
+        <details class="dashboard-details"><summary>날짜별 수치 보기</summary>
+          <div class="dashboard-table-scroll"><table>
+            <thead><tr><th scope="col">섭취일</th><th scope="col">총량(mg)</th><th scope="col">개운함</th><th scope="col">입면 어려움</th></tr></thead>
+            <tbody id="dashboard-table-body"></tbody>
+          </table></div>
+        </details>
+      </div>
     </section>
   </main>
 
