@@ -58,4 +58,20 @@ assert.deepEqual(
   }
 );
 
+// 누락된 개운함 점수는 숙면으로 집계하지 않음
+assert.equal(calculateAverageCutoff([{ drinks: ["14:00"] }]), null);
+assert.equal(calculateAverageCutoff([{ refreshScore: null, drinks: ["14:00"] }]), null);
+
+// 잘못된 시각·점수·자료형은 두 함수 모두 명시적으로 거부
+for (const calculate of [calculateAverageCutoff, calculateSleepDifficultyRates]) {
+  for (const invalid of [null, {}, [null], [{ drinks: null }],
+    [{ refreshScore: 5, drinks: ["25:00"] }],
+    [{ refreshScore: 5, drinks: ["12:60"] }],
+    [{ refreshScore: 6, drinks: ["14:00"] }],
+    [{ refreshScore: 4.5, drinks: ["14:00"] }],
+    [{ drinks: [], sleepDifficulty: "hard" }]]) {
+    assert.throws(() => calculate(invalid), TypeError);
+  }
+}
+
 console.log("통계 함수 테스트 모두 통과!");

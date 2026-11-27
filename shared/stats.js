@@ -1,10 +1,29 @@
+// 통계에 유효하지 않은 기록이 섞이면 잘못된 수치를 내지 않도록 거부합니다.
+function validateDailyRecords(dailyRecords) {
+  if (!Array.isArray(dailyRecords)) throw new TypeError('dailyRecords는 배열이어야 합니다.');
+  for (const day of dailyRecords) {
+    if (!day || !Array.isArray(day.drinks) || !day.drinks.every((time) =>
+      typeof time === 'string' && /^([01]\d|2[0-3]):[0-5]\d$/.test(time))) {
+      throw new TypeError('drinks는 유효한 HH:mm 시각의 배열이어야 합니다.');
+    }
+    if (day.refreshScore != null &&
+      (!Number.isInteger(day.refreshScore) || day.refreshScore < 1 || day.refreshScore > 5)) {
+      throw new TypeError('refreshScore는 1~5 정수여야 합니다.');
+    }
+    if (day.sleepDifficulty != null && typeof day.sleepDifficulty !== 'boolean') {
+      throw new TypeError('sleepDifficulty는 true 또는 false여야 합니다.');
+    }
+  }
+}
+
 // 개운함 4점 이상인 날의 마지막 카페인 섭취 시각 평균 계산
 // drinks에는 카페인이 있는 음료의 섭취 시각을 넣습니다.
 function calculateAverageCutoff(dailyRecords) {
+  validateDailyRecords(dailyRecords);
   const cutoffMinutes = [];
 
   for (const day of dailyRecords) {
-    if (day.refreshScore < 4 || day.drinks.length === 0) {
+    if (day.refreshScore == null || day.refreshScore < 4 || day.drinks.length === 0) {
       continue;
     }
 
@@ -34,6 +53,7 @@ function calculateAverageCutoff(dailyRecords) {
 // sleepDifficulty: true = 어려웠음, false = 어렵지 않았음
 // 수면 응답이 없는 날은 집계에서 제외합니다.
 function calculateSleepDifficultyRates(dailyRecords) {
+  validateDailyRecords(dailyRecords);
   const groups = {
     after18: { totalDays: 0, difficultDays: 0 },
     noAfter18: { totalDays: 0, difficultDays: 0 },
