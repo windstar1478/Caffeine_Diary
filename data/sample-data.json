@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "isSample": true,
+    "description": "중간 발표용 가상 데이터입니다. 실제 사용자 기록이나 의학적 근거가 아닙니다.",
+    "startDate": "2026-10-26",
+    "endDate": "2026-11-15",
+    "timezone": "Asia/Seoul",
+    "dateMeaning": "date는 섭취일이며, sleepDate는 해당 밤 수면을 평가한 다음 날 아침입니다.",
+    "drinksMeaning": "카페인이 있는 음료의 섭취 시각 목록(HH:mm). 빈 배열은 섭취 없음입니다.",
+    "caffeineMgMeaning": "해당 날짜의 총 카페인 섭취량(mg). 시연용 가상 수치입니다.",
+    "refreshScoreMeaning": "다음 날 아침 개운함 점수(1~5). 4점 이상을 숙면 집계에 사용합니다.",
+    "sleepDifficultyMeaning": "true는 입면이 어려웠음, false는 어렵지 않았음입니다."
+  },
+  "dailyRecords": [
+    { "date": "2026-10-26", "sleepDate": "2026-10-27", "drinks": ["09:00", "14:00"], "caffeineMg": 230, "refreshScore": 4, "sleepDifficulty": false },
+    { "date": "2026-10-27", "sleepDate": "2026-10-28", "drinks": ["09:30", "18:30"], "caffeineMg": 250, "refreshScore": 2, "sleepDifficulty": true },
+    { "date": "2026-10-28", "sleepDate": "2026-10-29", "drinks": ["10:00", "15:00"], "caffeineMg": 200, "refreshScore": 5, "sleepDifficulty": false },
+    { "date": "2026-10-29", "sleepDate": "2026-10-30", "drinks": ["08:30", "13:00", "19:00"], "caffeineMg": 330, "refreshScore": 2, "sleepDifficulty": true },
+    { "date": "2026-10-30", "sleepDate": "2026-10-31", "drinks": ["09:00", "16:00"], "caffeineMg": 240, "refreshScore": 3, "sleepDifficulty": true },
+    { "date": "2026-10-31", "sleepDate": "2026-11-01", "drinks": [], "caffeineMg": 0, "refreshScore": 5, "sleepDifficulty": false },
+    { "date": "2026-11-01", "sleepDate": "2026-11-02", "drinks": ["11:00", "18:00"], "caffeineMg": 180, "refreshScore": 4, "sleepDifficulty": false },
+    { "date": "2026-11-02", "sleepDate": "2026-11-03", "drinks": ["09:00", "13:30"], "caffeineMg": 220, "refreshScore": 4, "sleepDifficulty": false },
+    { "date": "2026-11-03", "sleepDate": "2026-11-04", "drinks": ["09:30", "15:00", "20:00"], "caffeineMg": 350, "refreshScore": 1, "sleepDifficulty": true },
+    { "date": "2026-11-04", "sleepDate": "2026-11-05", "drinks": ["10:00", "14:30"], "caffeineMg": 210, "refreshScore": 5, "sleepDifficulty": false },
+    { "date": "2026-11-05", "sleepDate": "2026-11-06", "drinks": ["08:30", "18:15"], "caffeineMg": 260, "refreshScore": 2, "sleepDifficulty": true },
+    { "date": "2026-11-06", "sleepDate": "2026-11-07", "drinks": ["09:00", "17:59"], "caffeineMg": 200, "refreshScore": 3, "sleepDifficulty": false },
+    { "date": "2026-11-07", "sleepDate": "2026-11-08", "drinks": [], "caffeineMg": 0, "refreshScore": 3, "sleepDifficulty": true },
+    { "date": "2026-11-08", "sleepDate": "2026-11-09", "drinks": ["11:00"], "caffeineMg": 100, "refreshScore": 5, "sleepDifficulty": false },
+    { "date": "2026-11-09", "sleepDate": "2026-11-10", "drinks": ["09:00", "14:00"], "caffeineMg": 220, "refreshScore": 4, "sleepDifficulty": false },
+    { "date": "2026-11-10", "sleepDate": "2026-11-11", "drinks": ["09:30", "19:30"], "caffeineMg": 280, "refreshScore": 2, "sleepDifficulty": true },
+    { "date": "2026-11-11", "sleepDate": "2026-11-12", "drinks": ["10:00", "15:30"], "caffeineMg": 210, "refreshScore": 4, "sleepDifficulty": false },
+    { "date": "2026-11-12", "sleepDate": "2026-11-13", "drinks": ["08:30", "13:00", "18:45"], "caffeineMg": 310, "refreshScore": 3, "sleepDifficulty": false },
+    { "date": "2026-11-13", "sleepDate": "2026-11-14", "drinks": ["09:00", "16:30"], "caffeineMg": 240, "refreshScore": 3, "sleepDifficulty": true },
+    { "date": "2026-11-14", "sleepDate": "2026-11-15", "drinks": [], "caffeineMg": 0, "refreshScore": 5, "sleepDifficulty": false },
+    { "date": "2026-11-15", "sleepDate": "2026-11-16", "drinks": ["11:00", "18:00"], "caffeineMg": 190, "refreshScore": 2, "sleepDifficulty": true }
+  ]
+}
